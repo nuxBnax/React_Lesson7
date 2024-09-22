@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { useDispatch } from 'react-redux';
 import './App.css';
+import { useEffect } from 'react';
+import MyButton from './ex2Button';
+import FetchButtonEx3 from './FetchButtonEx3';
+import ThunkComponent from './ThunkEx4';
+import SagaButton from './SagaComp';
+
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'TEST_ACTION' })
+  }, [dispatch]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="axample">
+      <div>Необходимо открыть консоль чтобы увидеть результат работы</div>
+      <MyButton />
+      <FetchButtonEx3/>
+      <ThunkComponent/>
+      <SagaButton/>
     </div>
   );
 }
